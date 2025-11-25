@@ -2,6 +2,7 @@
 Run this file to execute domain averaging in an OpenFOAM case
 """
 import loader
+import core
 
 def main(case_path, time, avg_var, avg_dirs):
 
@@ -12,6 +13,12 @@ def main(case_path, time, avg_var, avg_dirs):
         reader.extract_internal_field(var)
         reader.remove_artifacts(var)
         reader.convert_to_np(var)
+
+    # Perform averaging
+    averager = core.Averager(reader, avg_dirs)
+    averager.get_unique_coords()
+    averager.get_coords_indexes()
+    averager.calc_averaged()
 
 if __name__ == '__main__':
     main("../examples/Re_tau945_RANS_M3.64m", 100000, "U", ["z"])
