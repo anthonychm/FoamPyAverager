@@ -24,6 +24,9 @@ class Averager:
             c_view = np.array(c).view([('', self.non_avg_C.dtype)] * self.non_avg_C.shape[1])
             self.unique_coords_idx[c] = np.where(C_view == c_view)[0]
 
-    def calc_averaged(self):
+    def calc_averaged(self, avg_var):
         # Calculate averaged values of the averaging variable
         self.unique_coords_avg = self.create_unique_coords_dict()
+        for c in self.unique_coords_avg.keys():
+            vals = getattr(self, avg_var)[self.unique_coords_idx[c]]
+            self.unique_coords_avg[c] = vals.mean(axis=0)
