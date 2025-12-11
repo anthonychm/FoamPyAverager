@@ -11,7 +11,7 @@ class Averager:
     def get_unique_coords(self):
         # Get unique coordinates in the non-averaging directions
         self.plane_C = np.delete(self.C, self.avg_col_idx, axis=1)
-        self.unique_coords = np.unique(self.plane_C, axis=0)
+        self.unique_coords, self.unique_coords_inv = np.unique(self.plane_C, axis=0, return_inverse=True)
 
     def create_unique_coords_dict(self):
         return {tuple(c): None for c in self.unique_coords}
@@ -19,10 +19,8 @@ class Averager:
     def get_coords_indexes(self):
         # Get a list of indexes for each unique coordinate
         self.unique_coords_idx = self.create_unique_coords_dict()
-        for c in self.unique_coords_idx.keys():
-            C_view = self.plane_C.view([('', self.plane_C.dtype)] * self.plane_C.shape[1])
-            c_view = np.array(c).view([('', self.plane_C.dtype)] * self.plane_C.shape[1])
-            self.unique_coords_idx[c] = np.where(C_view == c_view)[0]
+        for i, c in enumerate(self.unique_coords_idx.keys()):
+            self.unique_coords_idx[c] = np.where(self.unique_coords_inv == i)[0]
 
     def calc_averaged(self, avg_var):
         # Calculate averaged values of the averaging variable
