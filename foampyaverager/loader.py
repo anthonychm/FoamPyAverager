@@ -1,6 +1,6 @@
 import numpy as np
 
-class Reader:
+class OpenFoamReader:
     def __init__(self, case_path, time):
         self.time_path = case_path + '/' + str(time) + '/'
 
@@ -26,3 +26,8 @@ class Reader:
         # Convert openfoam string file into numpy array
         arr = np.loadtxt(getattr(self, var).splitlines())
         setattr(self, var, arr)
+
+class AveragedReader:
+    def __init__(self, pth,unique_coords_file, avg_var_file):
+        self.unique_coords = np.loadtxt(pth + unique_coords_file)
+        self.averaged_var = np.loadtxt(pth + avg_var_file)

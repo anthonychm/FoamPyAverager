@@ -7,7 +7,7 @@ from foampyaverager import loader, core
 def main(case_path, time, avg_var, avg_dirs):
 
     # Load openfoam files
-    reader = loader.Reader(case_path, time)
+    reader = loader.OpenFoamReader(case_path, time)
     for var in ['C', avg_var]:
         reader.read_file(var)
         reader.extract_internal_field(var)
