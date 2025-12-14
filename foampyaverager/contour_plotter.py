@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 class CartesianContourPlotter:
     def __init__(self, unique_coords):
@@ -17,9 +18,26 @@ class CartesianContourPlotter:
     def fill_gridv(self, averaged_var):
         # Fill averaged variable grid
         i1 = np.searchsorted(self.unique1, self.unique_coords[:, 0])
-        i2 = np.searchsorted(self.unique2, self.unique_coords[:, -1])
-        self.gridv[i2, i1, :] = averaged_var
         i2 = np.searchsorted(self.unique2, self.unique_coords[:, 1])
         self.gridv[i2, i1] = averaged_var
+
+    def plot_cartesian_contour(self, x_ticks, y_ticks, c_levels, cmap):
+        # Plot cartesian contour
+        cont = plt.contourf(self.grid1, self.grid2, self.gridv, cmap=cmap, extend='both', levels=c_levels)
+        plt.xlim(np.min(self.grid1), np.max(self.grid1))
+        plt.ylim(np.min(self.grid2), np.max(self.grid2))
+
+        # Show contour ticks
+        plt.xticks(x_ticks, fontsize=14)
+        plt.yticks(y_ticks, fontsize=14)
+        plt.tick_params(axis='both', which='major', labelsize=14)
+
+        # Show colour bar
+        cbar = plt.colorbar(cont, orientation='vertical')
+        cbar.set_ticks(c_levels)
+        cbar.set_ticklabels(c_levels)
+        cbar.ax.tick_params(labelsize=14)
+        plt.show()
+
 
 # class CurvilinearContourPlotter:
