@@ -5,11 +5,13 @@ Run this file to plot a contour of a two-dimensional domain-averaged result
 from foampyaverager import loader
 from contour_plotter import CartesianContourPlotter
 
-def main(pth, unique_coords_file, avg_var_file):
+def main(pth, unique_coords_file, avg_var_file, avg_var_col):
     # Get unique coordinates and averaged variable data
-    reader = loader.AveragedReader(pth, unique_coords_file, avg_var_file)
+    reader = loader.AveragedReader(pth, unique_coords_file, avg_var_file, avg_var_col)
+
+    # Create domain and averaged variable grids
     ccp = CartesianContourPlotter(reader.unique_coords)
-    ccp.create_grids(reader.averaged_var)
+    ccp.create_grids()
     ccp.fill_gridv(reader.averaged_var)
 
 

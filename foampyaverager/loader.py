@@ -28,6 +28,6 @@ class OpenFoamReader:
         setattr(self, var, arr)
 
 class AveragedReader:
-    def __init__(self, pth,unique_coords_file, avg_var_file):
+    def __init__(self, pth, unique_coords_file, avg_var_file, avg_var_col):
         self.unique_coords = np.loadtxt(pth + unique_coords_file)
-        self.averaged_var = np.loadtxt(pth + avg_var_file)
+        self.averaged_var = np.loadtxt(pth + avg_var_file)[:, avg_var_col-1]
