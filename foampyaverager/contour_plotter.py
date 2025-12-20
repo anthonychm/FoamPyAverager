@@ -21,7 +21,7 @@ class CartesianContourPlotter:
         i2 = np.searchsorted(self.unique2, self.unique_coords[:, 1])
         self.gridv[i2, i1] = averaged_var
 
-    def plot_cartesian_contour(self, x_ticks, y_ticks, c_levels, cmap):
+    def plot_cartesian_contour(self, x_ticks, y_ticks, c_levels, cmap, save_name):
         # Plot cartesian contour
         cont = plt.contourf(self.grid1, self.grid2, self.gridv, cmap=cmap, extend='both', levels=c_levels)
         plt.xlim(np.min(self.grid1), np.max(self.grid1))
@@ -37,6 +37,7 @@ class CartesianContourPlotter:
         cbar.set_ticks(c_levels)
         cbar.set_ticklabels(c_levels)
         cbar.ax.tick_params(labelsize=14)
+        plt.savefig(save_name)
         plt.show()
 
 
