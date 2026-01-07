@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-class CartesianContourPlotter:
+class ContourPlotter:
     def __init__(self, unique_coords):
         assert unique_coords.shape[1] == 2
         self.unique_coords = unique_coords

@@ -11,12 +11,12 @@ def main(path, unique_coords_file, avg_var_file, avg_var_col, x_ticks, y_ticks, 
     reader = loader.AveragedReader(path, unique_coords_file, avg_var_file, avg_var_col)
 
     # Create domain and averaged variable grids
-    ccp = contour_plotter.CartesianContourPlotter(reader.unique_coords)
-    ccp.create_grids()
-    ccp.fill_gridv(reader.averaged_var)
+    cp = contour_plotter.ContourPlotter(reader.unique_coords)
+    cp.create_grids()
+    cp.fill_gridv(reader.averaged_var)
 
     # Plot cartesian contour
-    ccp.plot_cartesian_contour(x_ticks, y_ticks, c_levels, cmap, save_name)
+    cp.plot_cartesian_contour(x_ticks, y_ticks, c_levels, cmap, save_name)
 
 
 if __name__ == "__main__":
