@@ -24,21 +24,29 @@ class ContourPlotter:
     def plot_cartesian_contour(self, x_ticks, y_ticks, c_levels, cmap, save_name):
         # Plot cartesian contour
         cont = plt.contourf(self.grid1, self.grid2, self.gridv, cmap=cmap, extend='both', levels=c_levels)
-        plt.xlim(np.min(self.grid1), np.max(self.grid1))
-        plt.ylim(np.min(self.grid2), np.max(self.grid2))
-
-        # Show contour ticks
-        plt.xticks(x_ticks, fontsize=14)
-        plt.yticks(y_ticks, fontsize=14)
-        plt.tick_params(axis='both', which='major', labelsize=14)
-
-        # Show colour bar
-        cbar = plt.colorbar(cont, orientation='vertical')
-        cbar.set_ticks(c_levels)
-        cbar.set_ticklabels(c_levels)
-        cbar.ax.tick_params(labelsize=14)
+        pk = PlotKit()
+        pk.set_axis_lims(self.grid1, self.grid2)
+        pk.set_ticks(x_ticks, y_ticks, 14)
+        pk.set_cbar(cont, c_levels, 14, 'vertical')
         plt.savefig(save_name)
         plt.show()
 
 
-# class CurvilinearContourPlotter:
+class PlotKit:
+    @staticmethod
+    def set_axis_lims(x, y):
+        plt.xlim(np.min(x), np.max(x))
+        plt.ylim(np.min(y), np.max(y))
+
+    @staticmethod
+    def set_ticks(x_ticks, y_ticks, fontsize):
+        plt.xticks(x_ticks, fontsize=fontsize)
+        plt.yticks(y_ticks, fontsize=fontsize)
+        plt.tick_params(axis='both', which='major', labelsize=fontsize)
+
+    @staticmethod
+    def set_cbar(cont, c_levels, fontsize, cbar_orient):
+        cbar = plt.colorbar(cont, orientation=cbar_orient)
+        cbar.set_ticks(c_levels)
+        cbar.set_ticklabels(c_levels)
+        cbar.ax.tick_params(labelsize=fontsize)
