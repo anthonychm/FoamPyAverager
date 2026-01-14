@@ -31,6 +31,17 @@ class ContourPlotter:
         plt.savefig(save_name)
         plt.show()
 
+    def plot_tri_contour(self, averaged_var, x_ticks, y_ticks, c_levels, cmap, save_name):
+        # Plot tri-contour
+        cont = plt.tricontourf(self.unique_coords[:, 0], self.unique_coords[:, 1], averaged_var,
+                               cmap=cmap, extend='both', levels=c_levels)
+        pk = PlotKit()
+        pk.set_axis_lims(self.unique1, self.unique2)
+        pk.set_ticks(x_ticks, y_ticks, 14)
+        pk.set_cbar(cont, c_levels, 14, 'vertical')
+        plt.savefig(save_name)
+        plt.show()
+
 
 class PlotKit:
     @staticmethod
