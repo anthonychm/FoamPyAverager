@@ -14,6 +14,24 @@ class ArgsReader:
             self.parser.add_argument("--directions", required=True, nargs='+')
             self.args = self.parser.parse_args()
 
+    class LineArgsReader:
+        def __init__(self):
+            self.parser = argparse.ArgumentParser()
+
+        def parse_args(self):
+            self.parser.add_argument("--path", required=True, type=str)
+            self.parser.add_argument("--unique_coords_file", required=True, type=str)
+            self.parser.add_argument("--avg_var_file", required=True, type=str)
+            self.parser.add_argument("--avg_var_col", required=True, type=int)
+            self.parser.add_argument("--x_ticks", required=True)
+            self.parser.add_argument("--y_ticks", required=True)
+            self.parser.add_argument("--save_name", required=True, type=str)
+            self.args = self.parser.parse_args()
+
+        def eval_ticks(self):
+            self.x_ticks = ast.literal_eval(self.args.x_ticks)
+            self.y_ticks = ast.literal_eval(self.args.y_ticks)
+
     class ContourArgsReader:
         def __init__(self):
             self.parser = argparse.ArgumentParser()
