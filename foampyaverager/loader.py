@@ -3,6 +3,17 @@ import argparse
 import numpy as np
 
 class ArgsReader:
+    class AveragerArgsReader:
+        def __init__(self):
+            self.parser = argparse.ArgumentParser()
+
+        def parse_args(self):
+            self.parser.add_argument("--case", required=True, type=str)
+            self.parser.add_argument("--time", required=True)
+            self.parser.add_argument("--var", required=True, type=str)
+            self.parser.add_argument("--directions", required=True, nargs='+')
+            self.args = self.parser.parse_args()
+
     class ContourArgsReader:
         def __init__(self):
             self.parser = argparse.ArgumentParser()

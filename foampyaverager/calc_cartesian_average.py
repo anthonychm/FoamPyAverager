@@ -1,7 +1,7 @@
 """
 Run this file to execute domain averaging in an OpenFOAM case
 """
-import argparse
+
 from foampyaverager import loader, core
 
 def main(case_path, time, avg_var, avg_dirs):
@@ -25,10 +25,8 @@ def main(case_path, time, avg_var, avg_dirs):
     averager.write_averaged(avg_var)
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description="Domain averager")
-    parser.add_argument("--case", required=True, type=str, help="Your OpenFOAM case")
-    parser.add_argument("--time", required=True, help="Time folder for averaging")
-    parser.add_argument("--var", required=True, type=str, help="Variable to be averaged")
-    parser.add_argument("--directions", required=True, nargs='+', help="Direction of averaging")
-    args = parser.parse_args()
-    main(args.case, args.time, args.var, args.directions)
+    args_reader = loader.ArgsReader.AveragerArgsReader()
+    args_reader.parse_args()
+    main(args_reader.args.case, args_reader.args.time,
+         args_reader.args.var, args_reader.args.directions)
+    # main("../examples/Re_tau950_RANS_M688k_noWF", 100000, "U", ["z"])
