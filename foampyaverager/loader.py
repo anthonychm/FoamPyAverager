@@ -84,4 +84,4 @@ class OpenFoamReader:
 class AveragedReader:
     def __init__(self, path, unique_coords_file, avg_var_file, avg_var_col):
         self.unique_coords = np.loadtxt(path + unique_coords_file)
-        self.averaged_var = np.loadtxt(path + avg_var_file)[:, avg_var_col-1]
+        self.averaged_var = np.loadtxt(path + avg_var_file)[:, avg_var_col]
