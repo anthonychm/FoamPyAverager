@@ -15,7 +15,7 @@ def main(case_path, time, avg_var, avg_dirs):
         reader.convert_to_np(var)
 
     # Perform averaging
-    averager = core.Averager(reader, avg_dirs)
+    averager = core.CartesianAverager(reader, avg_dirs)
     averager.get_unique_coords()
     averager.get_coords_indexes()
     averager.calc_averaged(avg_var)

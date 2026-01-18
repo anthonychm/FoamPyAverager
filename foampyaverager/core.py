@@ -1,6 +1,7 @@
 import numpy as np
 
 class Averager:
+class CartesianAverager:
     def __init__(self, reader, avg_dirs):
         for name, value in reader.__dict__.items():
             setattr(self, name, value)
