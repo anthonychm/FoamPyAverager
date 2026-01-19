@@ -55,12 +55,12 @@ class ArgsReader:
 
 
 class OpenFoamReader:
-    def __init__(self, case_path, time):
-        self.time_path = case_path + '/' + str(time) + '/'
+    def __init__(self, case_path, folder):
+        self.path = case_path + '/' + str(folder) + '/'
 
     def read_file(self, var):
         # Reads openfoam file
-        file = open(self.time_path + var)
+        file = open(self.path + var)
         setattr(self, var, file.read())
         file.close()
 
