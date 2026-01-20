@@ -1,6 +1,5 @@
 import numpy as np
 
-class Averager:
 class PolarAverager:
     def __init__(self, reader, origin, ax_col_dir):
         for name, value in reader.__dict__.items():
@@ -10,6 +9,13 @@ class PolarAverager:
         if ax_col_dir is not None:
             self.ax_col_idx = self.dirs_dict[ax_col_dir]
             self.C = np.delete(self.C, self.ax_col_idx, axis=1)
+
+    def get_polar_coords(self):
+        # Convert cartesian coordinates to polar coordinates
+        self.C[:, 0] -= self.origin[0]
+        self.C[:, 1] -= self.origin[1]
+        self.r = np.sqrt((self.C[:, 0]**2) + (self.C[:, 1]**2))
+        self.theta = np.atan2(self.C[:, 1], self.C[:, 0])
 
 class CartesianAverager:
     def __init__(self, reader, avg_dirs):
