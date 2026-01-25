@@ -1,4 +1,5 @@
 import numpy as np
+from sklearn.cluster import KMeans
 
 class PolarAverager:
     def __init__(self, reader, origin, ax_col_dir):
@@ -14,8 +15,18 @@ class PolarAverager:
         # Convert cartesian coordinates to polar coordinates
         self.C[:, 0] -= self.origin[0]
         self.C[:, 1] -= self.origin[1]
-        self.r = np.sqrt((self.C[:, 0]**2) + (self.C[:, 1]**2))
+        self.radii = np.sqrt((self.C[:, 0]**2) + (self.C[:, 1]**2))
         self.theta = np.atan2(self.C[:, 1], self.C[:, 0])
+
+    def get_unique_radii(self, n_groups):
+        # Get representative unique radii in the domain using k means clustering
+        self.radii = np.array(self.radii).reshape(-1, 1)
+        kmeans = KMeans(n_clusters=n_groups)
+        self.radii_idx = kmeans.fit_predict(self.radii)
+
+        unique_radii_idx = np.unique(self.radii_idx)
+        self.idx_to_average_radii = {i: self.radii[self.radii_idx == i].mean() for i in unique_radii_idx}
+        self.radii = [self.idx_to_average_radii[i] for i in self.radii_idx]
 
 class CartesianAverager:
     def __init__(self, reader, avg_dirs):
