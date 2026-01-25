@@ -37,6 +37,15 @@ class PolarAverager:
             self.unique_radii_to_avg[r] = vals.mean(axis=0)
         self.averaged_var = np.vstack(list(self.unique_radii_to_avg.values()))
 
+    def write_unique_radii(self):
+        # Write unique radii to file
+        np.savetxt("unique_radii", self.unique_radii)
+
+    def write_averaged(self, avg_var):
+        # Write averaged variable to file
+        np.savetxt("averaged_" + avg_var, self.averaged_var)
+
+
 class CartesianAverager:
     def __init__(self, reader, avg_dirs):
         for name, value in reader.__dict__.items():
