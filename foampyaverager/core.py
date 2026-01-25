@@ -28,6 +28,15 @@ class PolarAverager:
         self.idx_to_average_radii = {i: self.radii[self.radii_idx == i].mean() for i in unique_radii_idx}
         self.radii = [self.idx_to_average_radii[i] for i in self.radii_idx]
 
+    def calc_averaged(self, avg_var):
+        # Calculate averaged values of the averaging variable
+        self.unique_radii = np.unique(self.radii)
+        self.unique_radii_to_avg = {r: None for r in self.unique_radii}
+        for r in self.unique_radii_to_avg.keys():
+            vals = getattr(self, avg_var)[self.radii == r]
+            self.unique_radii_to_avg[r] = vals.mean(axis=0)
+        self.averaged_var = np.vstack(list(self.unique_radii_to_avg.values()))
+
 class CartesianAverager:
     def __init__(self, reader, avg_dirs):
         for name, value in reader.__dict__.items():
