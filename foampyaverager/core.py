@@ -2,14 +2,14 @@ import numpy as np
 from sklearn.cluster import KMeans
 
 class PolarAverager:
-    def __init__(self, reader, origin, ax_col_dir):
+    def __init__(self, reader, origin, axial_dir):
         for name, value in reader.__dict__.items():
             setattr(self, name, value)
         self.origin = origin
         self.dirs_dict = {'x': 0, 'y': 1, 'z': 2}
-        if ax_col_dir is not None:
-            self.ax_col_idx = self.dirs_dict[ax_col_dir]
-            self.C = np.delete(self.C, self.ax_col_idx, axis=1)
+        if axial_dir is not None:
+            self.axial_col_idx = self.dirs_dict[axial_dir]
+            self.C = np.delete(self.C, self.axial_col_idx, axis=1)
 
     def get_polar_coords(self):
         # Convert cartesian coordinates to polar coordinates
