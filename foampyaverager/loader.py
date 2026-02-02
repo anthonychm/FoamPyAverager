@@ -3,7 +3,7 @@ import argparse
 import numpy as np
 
 class ArgsReader:
-    class AveragerArgsReader:
+    class CartAveragerArgsReader:
         def __init__(self):
             self.parser = argparse.ArgumentParser()
 

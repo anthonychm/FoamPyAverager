@@ -25,7 +25,7 @@ def main(case_path, time, avg_var, avg_dirs):
     averager.write_averaged(avg_var)
 
 if __name__ == '__main__':
-    args_reader = loader.ArgsReader.AveragerArgsReader()
+    args_reader = loader.ArgsReader.CartAveragerArgsReader()
     args_reader.parse_args()
     main(args_reader.args.case, args_reader.args.time,
          args_reader.args.var, args_reader.args.directions)
