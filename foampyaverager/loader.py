@@ -14,6 +14,22 @@ class ArgsReader:
             self.parser.add_argument("--directions", required=True, nargs='+')
             self.args = self.parser.parse_args()
 
+    class PolarAveragerArgsReader:
+        def __init__(self):
+            self.parser = argparse.ArgumentParser()
+
+        def parse_args(self):
+            self.parser.add_argument("--case", required=True, type=str)
+            self.parser.add_argument("--time", required=True, type=int)
+            self.parser.add_argument("--var", required=True, type=str)
+            self.parser.add_argument("--origin", required=True, type=str)
+            self.parser.add_argument("--axial_dir", required=True, type=str)
+            self.parser.add_argument("--num_unique_radii", required=True, type=int)
+            self.args = self.parser.parse_args()
+
+        def eval_origin(self):
+            self.origin = ast.literal_eval(self.args.origin)
+
     class LineArgsReader:
         def __init__(self):
             self.parser = argparse.ArgumentParser()
