@@ -2,7 +2,7 @@
 Generates a line plot of a one-dimensional domain-averaged result
 """
 
-from foampyaverager import loader, line_plotter
+from foampyaverager.src import loader, line_plotter
 
 def main(path, unique_coords_file, avg_var_file, avg_var_col, x_ticks, y_ticks, save_name):
     # Get unique coordinates and averaged variable data

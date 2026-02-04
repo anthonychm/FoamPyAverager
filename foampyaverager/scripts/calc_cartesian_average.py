@@ -2,7 +2,7 @@
 Run this file to execute domain averaging in an OpenFOAM case
 """
 
-from foampyaverager import loader, core
+from foampyaverager.src import loader, core
 
 def main(case_path, time, avg_var, avg_dirs):
 

@@ -3,7 +3,7 @@ Run this file to execute domain averaging
 in cylindrical coordinates for an OpenFOAM case
 """
 
-from foampyaverager import loader, core
+from foampyaverager.src import loader, core
 
 def main(case_path, time, avg_var, origin, axial_dir, num_unique_radii):
 

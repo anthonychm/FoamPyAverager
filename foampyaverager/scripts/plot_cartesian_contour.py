@@ -2,7 +2,7 @@
 Run this file to plot a contour of a two-dimensional domain-averaged result
 """
 
-from foampyaverager import loader, contour_plotter
+from foampyaverager.src import loader, contour_plotter
 
 def main(path, unique_coords_file, avg_var_file, avg_var_col, x_ticks, y_ticks, c_levels, cmap, save_name):
     # Get unique coordinates and averaged variable data
