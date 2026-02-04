@@ -34,4 +34,3 @@ if __name__ == '__main__':
 
     main(args_reader.args.case, args_reader.args.time, args_reader.args.var,
          args_reader.origin, args_reader.args.axial_dir, args_reader.args.num_unique_radii)
-    # main("../examples/pipeCyclic", 227, "U", [0, 0], "x", 5)

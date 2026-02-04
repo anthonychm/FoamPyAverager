@@ -20,5 +20,3 @@ if __name__ == "__main__":
     main(args_reader.args.path, args_reader.args.unique_coords_file,
          args_reader.args.avg_var_file, args_reader.args.avg_var_col,
          args_reader.x_ticks, args_reader.y_ticks, args_reader.args.save_name)
-    # main("", "unique_Cy", "averaged_U", 0, [0, 0.005, 0.010, 0.015, 0.020, 0.025, 0.030, 0.035, 0.040],
-    #      [0, 2, 4, 6, 8, 10, 12, 14, 16], "test.png")

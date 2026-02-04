@@ -29,4 +29,3 @@ if __name__ == '__main__':
     args_reader.parse_args()
     main(args_reader.args.case, args_reader.args.time,
          args_reader.args.var, args_reader.args.directions)
-    # main("../examples/Re_tau950_RANS_M688k_noWF", 100000, "U", ["z"])
