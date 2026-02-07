@@ -18,13 +18,8 @@ pip install -r requirements.txt
 
 ## 📘 Example 1: Spanwise Averaging
 This example demonstrates the use of FoamPyAverager to perform spanwise averaging on the channel395 OpenFOAM tutorial result. The channel395 tutorial case models turbulent flow through a plane channel using LES.
-
-![channel395 tutorial case](images/channel395_UMeanX.PNG)
+<img src="images/channel395_UMeanX.PNG" width="400">
 
 ## 📘 Example 2: Polar Averaging
 This example demonstrates the use of FoamPyAverager to perform polar averaging on the pipeCyclic OpenFOAM tutorial result. The pipeCyclic tutorial case models turbulent flow through a pipe using RANS, where only a quarter of the pipe has been modelled.
-
-![pipeCyclic tutorial case](images/pipeCyclic_Ux.PNG)
-
-
-
+<img src="images/pipeCyclic_Ux.PNG" width="400">
