@@ -35,9 +35,8 @@ class ArgsReader:
             self.parser = argparse.ArgumentParser()
 
         def parse_args(self):
-            self.parser.add_argument("--path", required=True, type=str)
-            self.parser.add_argument("--unique_coords_file", required=True, type=str)
-            self.parser.add_argument("--avg_var_file", required=True, type=str)
+            self.parser.add_argument("--unique_coords_path", required=True, type=str)
+            self.parser.add_argument("--avg_var_path", required=True, type=str)
             self.parser.add_argument("--avg_var_col", required=True, type=int)
             self.parser.add_argument("--x_ticks", required=True)
             self.parser.add_argument("--y_ticks", required=True)
@@ -53,9 +52,8 @@ class ArgsReader:
             self.parser = argparse.ArgumentParser()
 
         def parse_args(self):
-            self.parser.add_argument("--path", required=True, type=str)
-            self.parser.add_argument("--unique_coords_file", required=True, type=str)
-            self.parser.add_argument("--avg_var_file", required=True, type=str)
+            self.parser.add_argument("--unique_coords_path", required=True, type=str)
+            self.parser.add_argument("--avg_var_path", required=True, type=str)
             self.parser.add_argument("--avg_var_col", required=True, type=int)
             self.parser.add_argument("--x_ticks", required=True)
             self.parser.add_argument("--y_ticks", required=True)
@@ -98,6 +96,6 @@ class OpenFoamReader:
         setattr(self, var, arr)
 
 class AveragedReader:
-    def __init__(self, path, unique_coords_file, avg_var_file, avg_var_col):
-        self.unique_coords = np.loadtxt(path + unique_coords_file)
-        self.averaged_var = np.loadtxt(path + avg_var_file)[:, avg_var_col]
+    def __init__(self, unique_coords_path, avg_var_path, avg_var_col):
+        self.unique_coords = np.loadtxt(unique_coords_path)
+        self.averaged_var = np.loadtxt(avg_var_path)[:, avg_var_col]
