@@ -8,7 +8,7 @@ class CartesianLinePlotter:
         self.averaged_var = averaged_var
 
     def plot_cartesian_line(self, x_ticks, y_ticks, save_name):
-        plt.plot(self.unique_coords, self.averaged_var, linewidth=1)
+        plt.plot(self.unique_coords, self.averaged_var, linewidth=1, color='b', marker='x', markeredgecolor='k', clip_on=False)
         plt.xlim(np.min(self.unique_coords), np.max(self.unique_coords))
         plt.ylim(np.min(self.averaged_var), np.max(self.averaged_var))
 
