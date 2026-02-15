@@ -20,7 +20,7 @@ class ArgsReader:
 
         def parse_args(self):
             self.parser.add_argument("--case", required=True, type=str)
-            self.parser.add_argument("--time", required=True, type=int)
+            self.parser.add_argument("--time", required=True)
             self.parser.add_argument("--var", required=True, type=str)
             self.parser.add_argument("--origin", required=True, type=str)
             self.parser.add_argument("--axial_dir", required=True, type=str)
@@ -38,8 +38,8 @@ class ArgsReader:
             self.parser.add_argument("--unique_coords_path", required=True, type=str)
             self.parser.add_argument("--avg_var_path", required=True, type=str)
             self.parser.add_argument("--avg_var_col", required=True, type=int)
-            self.parser.add_argument("--x_ticks", required=True)
-            self.parser.add_argument("--y_ticks", required=True)
+            self.parser.add_argument("--x_ticks", required=True, type=str)
+            self.parser.add_argument("--y_ticks", required=True, type=str)
             self.parser.add_argument("--save_name", required=True, type=str)
             self.args = self.parser.parse_args()
 
@@ -55,9 +55,9 @@ class ArgsReader:
             self.parser.add_argument("--unique_coords_path", required=True, type=str)
             self.parser.add_argument("--avg_var_path", required=True, type=str)
             self.parser.add_argument("--avg_var_col", required=True, type=int)
-            self.parser.add_argument("--x_ticks", required=True)
-            self.parser.add_argument("--y_ticks", required=True)
-            self.parser.add_argument("--c_levels", required=True)
+            self.parser.add_argument("--x_ticks", required=True, type=str)
+            self.parser.add_argument("--y_ticks", required=True, type=str)
+            self.parser.add_argument("--c_levels", required=True, type=str)
             self.parser.add_argument("--cmap", required=True, type=str)
             self.parser.add_argument("--save_name", required=True, type=str)
             self.args = self.parser.parse_args()
