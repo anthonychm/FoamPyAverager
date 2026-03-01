@@ -40,6 +40,6 @@ example. As Ux is the first column in the averaged_UMean file, the avg_var_col i
 Running this line saves the following figure called "channel395_contour.png":
 
 <p align="center">
-<img src="../images/channel395_contour.PNG" width="400">
+<img src="../images/channel395_contour.png" width="400">
 </p>
 
