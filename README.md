@@ -32,6 +32,6 @@ Run the following to install the package:
 ```python
 git clone https://github.com/anthonychm/FoamPyAverager.git
 cd FoamPyAverager
-pip install -r requirements.txt
+pip install -r foampyaverager/requirements.txt
 ```
 Please visit the [Get Started](docs/get_started.md) page for documentation on the scripts in this package.
