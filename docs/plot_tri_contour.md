@@ -41,5 +41,5 @@ py -m  foampyaverager.scripts.plot_tri_contour --unique_coords_path "unique_Cx_C
 Running this line saves the following figure called "periodicHill_contour.png":
 
 <p align="center">
-<img src="images/periodicHill_contour.PNG" width="400">
+<img src="../images/periodicHill_contour.PNG" width="400">
 </p>

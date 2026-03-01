@@ -18,13 +18,13 @@ postProcess -func writeCellCentres
 The C file and the file of the results to be averaged must be in ascii format.
 
 ## Averagers
-[calc_cartesian_average](docs/calc_cartesian_average.md)  
-[calc_polar_average](docs/calc_polar_average.md)
+[calc_cartesian_average](calc_cartesian_average.md)  
+[calc_polar_average](calc_polar_average.md)
 
 ## Plotters
-[plot_cartesian_contour](docs/plot_cartesian_contour.md)  
-[plot_tri_contour](docs/plot_tri_contour.md)  
-[plot_cartesian_line](docs/plot_cartesian_line.md)  
+[plot_cartesian_contour](plot_cartesian_contour.md)  
+[plot_tri_contour](plot_tri_contour.md)  
+[plot_cartesian_line](plot_cartesian_line.md)  
 
 ## Examples
 The following tutorial examples provided with the OpenFOAM software are used to demonstrate how the averagers and 

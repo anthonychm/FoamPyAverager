@@ -35,7 +35,7 @@ first column in the averaged_UMean file, the avg_var_col index is 0.
 
 Running this line saves the following figure called "channel395_line.png":
 <p align="center">
-<img src="images/channel395_line.PNG" width="400">
+<img src="../images/channel395_line.PNG" width="400">
 </p>
 
 ## Example 2: Plotting Polar Averaged Result
@@ -50,5 +50,5 @@ in the radial direction is the second column in the averaged_U file, the avg_var
 
 Running this line saves the following figure called "pipeCyclic_line.png":
 <p align="center">
-<img src="images/pipeCyclic_line.PNG" width="400">
+<img src="../images/pipeCyclic_line.PNG" width="400">
 </p>
