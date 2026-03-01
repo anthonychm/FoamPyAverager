@@ -7,19 +7,19 @@ Some examples to demonstrate its capabilities are provided below:
 ### Example 1
 Domain-averaging of a turbulent plane channel flow in the streamwise (x) and spanwise (z) directions
 <p align="center">
-<img src="images/channel395_example.PNG" width="400">
+<img src="images/channel395_example.svg" width="800">
 </p>
 
 ### Example 2
 Domain-averaging of a turbulent pipe flow in the axial and tangential (θ) directions
 <p align="center">
-<img src="images/pipeCyclic_example.PNG" width="400">
+<img src="images/pipeCyclic_example.svg" width="800">
 </p>
 
 ### Example 3
 Domain-averaging of a flow over periodic hills in the spanwise (z) direction
 <p align="center">
-<img src="images/periodicHill_example.PNG" width="400">
+<img src="images/periodicHill_example.svg" width="800">
 </p>
 
 ## ⚙️ Installation
