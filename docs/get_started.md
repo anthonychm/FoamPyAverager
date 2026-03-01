@@ -36,7 +36,7 @@ on friction velocity, channel half-height and kinematic viscosity. This case can
 tutorials/incompressible/pimpleFoam/LES.
 
 <p align="center">
-<img src="images/channel395_full_domain.PNG" width="400">
+<img src="../images/channel395_full_domain.PNG" width="400">
 </p>
 
 ### 📘 Example 2: pipeCyclic
@@ -46,7 +46,7 @@ quarter of the domain is modelled. The Reynolds number of the case is 180 based 
 and kinematic viscosity. This case can be found in the OpenFOAM folder tutorials/incompressible/simpleFoam.
 
 <p align="center">
-<img src="images/pipeCyclic_full_domain.PNG" width="400">
+<img src="../images/pipeCyclic_full_domain.PNG" width="400">
 </p>
 
 ### 📘 Example 3: periodicHill
@@ -57,5 +57,5 @@ hill crest height of 0.03m and kinematic viscosity of $2.643 \times 10^{-6}$ m²
 the OpenFOAM folder tutorials/incompressible/pimpleFoam/LES.
 
 <p align="center">
-<img src="images/periodicHill_full_domain.PNG" width="400">
+<img src="../images/periodicHill_full_domain.PNG" width="400">
 </p>
