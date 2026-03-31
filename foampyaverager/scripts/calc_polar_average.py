@@ -11,7 +11,7 @@ def main(case_path, time, avg_var, origin, axial_dir, num_unique_radii):
     reader = loader.OpenFoamReader(case_path, time)
     for var in ['C', avg_var]:
         reader.read_file(var)
-        reader.extract_internal_field(var)
+        reader.extract_internal_field(var, end_str='boundaryField')
         reader.remove_artifacts(var)
         reader.convert_to_np(var)
 

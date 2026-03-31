@@ -78,10 +78,10 @@ class OpenFoamReader:
         setattr(self, var, file.read())
         file.close()
 
-    def extract_internal_field(self, var):
+    def extract_internal_field(self, var, end_str='boundaryField'):
         # Extracts internal field from an openfile file
         start = getattr(self, var).find('(') + 1
-        end = getattr(self, var).find('boundaryField')
+        end = getattr(self, var).rfind(end_str)
         setattr(self, var, getattr(self, var)[start:end])
 
     def remove_artifacts(self, var):
