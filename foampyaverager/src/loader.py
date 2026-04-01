@@ -84,11 +84,10 @@ class OpenFoamReader:
         end = getattr(self, var).rfind(end_str)
         setattr(self, var, getattr(self, var)[start:end])
 
-    def remove_artifacts(self, var):
+    def remove_artifacts(self, var, artifacts=['(', ')', ';']):
         # Remove unwanted artifacts in the extracted internal field
-        setattr(self, var, getattr(self, var).replace('(', ''))
-        setattr(self, var, getattr(self, var).replace(')', ''))
-        setattr(self, var, getattr(self, var).replace(';', ''))
+        for artifact in artifacts:
+            setattr(self, var, getattr(self, var).replace(artifact, ''))
 
     def convert_to_np(self, var):
         # Convert openfoam string file into numpy array
